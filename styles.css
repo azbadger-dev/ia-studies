@@ -1,0 +1,513 @@
+/* ==========================================
+   DIARIO DE ESTUDIO — SISTEMA DE ESTILOS VIRTUS
+   ========================================== */
+
+/* Reseteo y variables globales */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-app: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --card-shadow-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+  
+  /* Colores de Métricas */
+  --fire-bg: #fff7ed;
+  --fire-border: #ffedd5;
+  --fire-color: #ea580c;
+  
+  --gold-bg: #fef3c7;
+  --gold-border: #fde68a;
+  --gold-color: #d97706;
+  
+  --blue-bg: #eff6ff;
+  --blue-border: #dbeafe;
+  --blue-color: #2563eb;
+  
+  --emerald-bg: #ecfdf5;
+  --emerald-border: #a7f3d0;
+  --emerald-color: #059669;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 32px 16px;
+  min-height: 100vh;
+}
+
+.app-wrapper {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   ENCABEZADO / MARCA
+   ========================================== */
+.header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  font-size: 2.2rem;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--card-border);
+}
+
+.brand-text {
+  text-align: left;
+}
+
+.brand-text h1 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.brand-tagline {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================
+   ESTRUCTURA PRINCIPAL
+   ========================================== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================
+   DASHBOARD DE MÉTRICAS (GRID DE 4 TARJETAS)
+   ========================================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.metric-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.metric-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.metric-header h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-body {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.metric-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.metric-value-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.metric-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Variaciones por Tema de Métrica */
+.metric-streak {
+  background-color: var(--fire-bg);
+  border-color: var(--fire-border);
+}
+.color-fire {
+  color: var(--fire-color);
+}
+
+.metric-best {
+  background-color: var(--gold-bg);
+  border-color: var(--gold-border);
+}
+.color-gold {
+  color: var(--gold-color);
+}
+
+.metric-weekly {
+  background-color: var(--blue-bg);
+  border-color: var(--blue-border);
+}
+.color-blue {
+  color: var(--blue-color);
+}
+
+.metric-monthly {
+  background-color: var(--emerald-bg);
+  border-color: var(--emerald-border);
+}
+.color-emerald {
+  color: var(--emerald-color);
+}
+
+/* ==========================================
+   OBJETIVO SEMANAL Y PROGRESO
+   ========================================== */
+.btn-objective {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.1s;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-objective:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  background-color: rgba(0,0,0,0.05);
+}
+
+.objective-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--blue-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+  display: none; /* Se oculta por defecto hasta que haya un objetivo */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--blue-color);
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+}
+
+/* ==========================================
+   ESTILOS DE TARJETAS COMUNES
+   ========================================== */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+
+.card-header {
+  margin-bottom: 20px;
+}
+
+.card-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ==========================================
+   MAPA DE CALOR (HEATMAP)
+   ========================================== */
+.heatmap-wrapper {
+  margin-top: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 4px;
+  /* Ancho mínimo para garantizar que las celdas no se aplasten en móviles */
+  min-width: max-content;
+}
+
+.heat-cell {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background-color: var(--card-border);
+  transition: opacity 0.2s;
+}
+
+.heat-cell.empty {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+/* Niveles de intensidad basados en color-emerald */
+.heat-cell[data-level="0"] { background-color: var(--emerald-bg); }
+.heat-cell[data-level="1"] { background-color: rgba(16, 185, 129, 0.4); }
+.heat-cell[data-level="2"] { background-color: rgba(16, 185, 129, 0.6); }
+.heat-cell[data-level="3"] { background-color: rgba(16, 185, 129, 0.8); }
+.heat-cell[data-level="4"] { background-color: rgba(16, 185, 129, 1); }
+
+.heat-cell[title]:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* ==========================================
+   FORMULARIO DE REGISTRO
+   ========================================== */
+#sessionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: #1e293b;
+  transform: translateY(-1px);
+}
+
+.btn-submit:active {
+  background-color: #020617;
+  transform: translateY(0);
+}
+
+.btn-icon {
+  transition: transform 0.15s ease;
+}
+
+.btn-submit:hover .btn-icon {
+  transform: scale(1.15);
+}
+
+/* ==========================================
+   HISTORIAL DE SESIONES
+   ========================================== */
+.sessions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-message {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+  padding: 24px 12px;
+  background-color: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--card-border);
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.session-item:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.session-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.session-topic {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+.session-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.session-time {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1e40af;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES
+   ========================================== */
+@media (max-width: 520px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .metric-card {
+    padding: 14px 12px;
+  }
+
+  .metric-value {
+    font-size: 1.8rem;
+  }
+
+  .metric-value-text {
+    font-size: 1.15rem;
+  }
+
+  .card {
+    padding: 18px 14px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

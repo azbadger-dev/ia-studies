@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario de Estudio — Registro y Racha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon">📚</span>
+        <div class="brand-text">
+          <h1>Diario de Estudio</h1>
+          <p class="brand-tagline">Construye tu hábito, día a día</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Dashboard de Métricas y Rachas -->
+      <section class="dashboard-grid">
+        <!-- Racha Actual -->
+        <article class="metric-card metric-streak">
+          <div class="metric-header">
+            <span class="metric-icon">🔥</span>
+            <h2>Racha Actual</h2>
+          </div>
+          <div class="metric-body">
+            <span id="streakCount" class="metric-value color-fire">0</span>
+            <span class="metric-unit">días</span>
+          </div>
+        </article>
+
+        <!-- Mejor Racha -->
+        <article class="metric-card metric-best">
+          <div class="metric-header">
+            <span class="metric-icon">🏆</span>
+            <h2>Mejor Racha</h2>
+          </div>
+          <div class="metric-body">
+            <span id="bestStreakCount" class="metric-value color-gold">0</span>
+            <span class="metric-unit">días</span>
+          </div>
+        </article>
+
+        <!-- Tiempo Esta Semana -->
+        <article class="metric-card metric-weekly">
+          <div class="metric-header" style="justify-content: space-between; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="metric-icon">⏱️</span>
+              <h2>Tiempo esta semana</h2>
+            </div>
+            <button id="setObjectiveBtn" class="btn-objective" title="Fijar objetivo">✏️</button>
+          </div>
+          <div class="metric-body" style="flex-wrap: wrap; width: 100%;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; width: 100%;">
+              <span id="weeklyMinutes" class="metric-value-text color-blue">0 min</span>
+              <span id="objectiveText" class="objective-text"></span>
+            </div>
+            <div id="progressContainer" class="progress-container">
+              <div id="weeklyProgressBar" class="progress-bar"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Días Este Mes -->
+        <article class="metric-card metric-monthly">
+          <div class="metric-header">
+            <span class="metric-icon">📅</span>
+            <h2>Días este mes</h2>
+          </div>
+          <div class="metric-body">
+            <span id="monthlyDays" class="metric-value-text color-emerald">0 días</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- Mapa de Calor (Últimas 12 Semanas) -->
+      <section class="card heatmap-card">
+        <div class="card-header">
+          <h2>Actividad Reciente</h2>
+          <p class="card-subtitle">Tu constancia en las últimas 12 semanas</p>
+        </div>
+        <div class="heatmap-wrapper">
+          <div id="heatmapGrid" class="heatmap-grid">
+            <!-- Celdas renderizadas dinámicamente -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Formulario para registrar sesión -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2>Registrar Sesión</h2>
+          <p class="card-subtitle">Añade los minutos que has estudiado hoy o un día anterior</p>
+        </div>
+        <form id="sessionForm">
+          <div class="form-grid">
+            <div class="form-group form-group-date">
+              <label for="dateInput">Fecha</label>
+              <input type="date" id="dateInput" required>
+            </div>
+
+            <div class="form-group form-group-minutes">
+              <label for="minutesInput">Minutos</label>
+              <input type="number" id="minutesInput" min="1" placeholder="Ej: 45" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="topicInput">Tema o Asignatura</label>
+            <input type="text" id="topicInput" placeholder="Ej: Flexbox en CSS o Algoritmos" required>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <span>Guardar Sesión</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </form>
+      </section>
+
+      <!-- Historial de sesiones -->
+      <section class="card history-card">
+        <div class="card-header">
+          <h2>Historial de Sesiones</h2>
+        </div>
+        <ul id="sessionsList" class="sessions-list">
+          <!-- Las sesiones se insertarán dinámicamente -->
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
